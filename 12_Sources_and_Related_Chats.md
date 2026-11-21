@@ -6,6 +6,14 @@
 - **Your chats with Claude:** listed below.
 - **Research:** three research reports of 31 Oct 2026 (supplements, daily prevention, LV versus vasculitis) and the sources below. LV is rare, so most evidence is small studies, case series and expert opinion.
 
+## Research reports
+
+Each report is saved in the reports folder with its date and time in the file name. The notes behind it are in research_notes.
+
+| Date and time (SGT) | Report | Question |
+| --- | --- | --- |
+| 21 Nov 2026, 11:36 | [Preventing LV flares beyond rivaroxaban](reports/2026-11-21_1136_Preventing%20LV%20flares%20beyond%20rivaroxaban.md) | Is there a way to keep LV away other than taking rivaroxaban indefinitely? |
+
 ## Medical sources
 
 ### LV in general

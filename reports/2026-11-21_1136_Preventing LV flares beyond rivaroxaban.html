@@ -1,0 +1,389 @@
+<title>LV Prevention Options</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one calm reading column. Short answer first, everything else folded away below. */
+:root {
+  --bg: #F6F5FA;
+  --surface: #FFFFFF;
+  --ink: #1D1A2B;
+  --muted: #5E5873;
+  --line: #DCD8E8;
+  --accent: #5A4691;        /* livedo violet */
+  --accent-soft: #ECE8F7;
+  --good: #1F7A5C;
+  --warn: #8A5200;
+  --warn-soft: #FBF1DC;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-head: "Space Grotesk", "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15131D; --surface: #1E1B2A; --ink: #ECE9F5; --muted: #A9A3BF; --line: #35304A;
+    --accent: #B3A2EA; --accent-soft: #2A2440; --good: #5CC8A1; --warn: #E6B05A; --warn-soft: #33290F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15131D; --surface: #1E1B2A; --ink: #ECE9F5; --muted: #A9A3BF; --line: #35304A;
+  --accent: #B3A2EA; --accent-soft: #2A2440; --good: #5CC8A1; --warn: #E6B05A; --warn-soft: #33290F;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 64px;
+}
+.page { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px; }
+.block { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+h1, h2, h3 { font-family: var(--font-head); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(1.75rem, 6vw, 2.35rem); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.3rem; font-weight: 600; }
+h3 { font-size: 1.02rem; font-weight: 600; }
+p, ul, ol { margin: 0; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+strong { font-weight: 700; }
+
+.eyebrow { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lead { font-size: 1.1rem; }
+.note {
+  background: var(--warn-soft); color: var(--ink);
+  border-left: 4px solid var(--warn);
+  padding: 12px 16px; font-size: 0.95rem;
+}
+
+/* key points */
+.points { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.points li { display: grid; grid-template-columns: 10px 1fr; gap: 14px; align-items: start; }
+.points li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 0.5em; }
+.points b { display: block; }
+.points span { color: var(--muted); }
+
+/* pictogram */
+.figure { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.dots { display: flex; flex-wrap: wrap; gap: 8px; }
+.dot { width: 22px; height: 22px; border-radius: 50%; }
+.dot.ok { background: var(--good); }
+.dot.re { background: transparent; border: 3px solid var(--warn); box-sizing: border-box; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.95rem; }
+.legend div { display: flex; gap: 8px; align-items: center; }
+.legend .dot { width: 14px; height: 14px; flex: none; }
+.legend .dot.re { border-width: 2px; }
+.caption { font-size: 0.88rem; color: var(--muted); }
+
+/* questions */
+.ask { padding-left: 1.3em; display: flex; flex-direction: column; gap: 10px; }
+.ask li::marker { color: var(--accent); font-weight: 700; }
+
+/* fold-away detail */
+.more { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer; padding: 16px 0;
+  display: grid; grid-template-columns: 1fr 20px; gap: 12px; align-items: center;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: ""; width: 9px; height: 9px; justify-self: center;
+  border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg); transition: transform 0.15s;
+}
+details[open] > summary::after { transform: rotate(-135deg); }
+@media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
+.sum-title { font-family: var(--font-head); font-weight: 600; font-size: 1.08rem; display: block; }
+.sum-line { color: var(--muted); font-size: 0.95rem; display: block; }
+.body { display: flex; flex-direction: column; gap: 16px; padding: 4px 0 24px; min-width: 0; }
+.body ul { padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; }
+.main { background: var(--accent-soft); padding: 12px 16px; border-radius: 8px; }
+
+/* option entries (used instead of wide tables) */
+.opts { display: flex; flex-direction: column; }
+.opt { padding: 12px 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.opt:first-child { border-top: 0; padding-top: 0; }
+.opt .limit { color: var(--muted); font-size: 0.95rem; }
+.src { font-size: 0.85rem; }
+
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-head); font-weight: 600; font-size: 0.85rem; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+
+.sources { font-size: 0.9rem; overflow-wrap: anywhere; }
+.sources h3 { margin-top: 6px; }
+footer { font-size: 0.88rem; color: var(--muted); }
+</style>
+
+<main class="page">
+
+  <header class="block">
+    <p class="eyebrow">Livedoid vasculopathy · research note · 21 Nov 2026</p>
+    <h1>Is there a way to keep LV away without rivaroxaban forever?</h1>
+    <p class="lead"><strong>Yes, but nothing is proven to work better than the tablet you take now.</strong> The best-supported way to avoid "tablets forever" is a <strong>planned stop</strong>: after a stable period, you and your dermatologist stop the tablet, watch closely, and restart fast if signs return.</p>
+    <p>No treatment cures LV, and none has been tested in a proper large trial.</p>
+    <p class="note">This is general information to discuss with your dermatologist. Do not stop or change your medicine on your own.</p>
+  </header>
+
+  <section class="block" aria-labelledby="h-figure">
+    <h2 id="h-figure">What happened to 26 people who stopped</h2>
+    <div class="figure">
+      <div class="dots" role="img" aria-label="26 dots: 10 filled for people with no relapse, 16 outlined for people who relapsed">
+        <span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot ok"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span><span class="dot re"></span>
+      </div>
+      <div class="legend">
+        <div><span class="dot ok"></span><span><strong>10</strong> stayed clear (about 17 months of follow-up)</span></div>
+        <div><span class="dot re"></span><span><strong>16</strong> relapsed, after about 7 months</span></div>
+      </div>
+      <p class="caption">The relapses were milder than the first illness, and the second treatment course was shorter (about 3 months instead of 9). These people had taken rivaroxaban for about 9 months before stopping. Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10897505/">Deng et al., 2024</a>.</p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-points">
+    <h2 id="h-points">What matters most for you</h2>
+    <ul class="points">
+      <li><div><b>A planned stop is allowed.</b><span>The German LV guideline offers stable patients 10 mg a day or a trial of stopping. You are about 5 weeks in, so this is for later.</span></div></li>
+      <li><div><b>Finish the antibody test first.</b><span>One blood test is missing (anti-beta-2 glycoprotein I). Its result could change which medicine is right for you.</span></div></li>
+      <li><div><b>10 mg is not the stroke dose.</b><span>It is the low, preventive dose. In trials its bleeding risk was similar to low-dose aspirin.</span></div></li>
+      <li><div><b>Other clot medicines are not clearly better.</b><span>Aspirin is weaker for LV and not clearly safer.</span></div></li>
+      <li><div><b>Immune treatments are backups.</b><span>They are for when clot medicines fail, or if your problem turns out to be more vasculitis (inflamed vessel walls) than LV.</span></div></li>
+      <li><div><b>Habits help but cannot replace medicine.</b><span>Heat is the best-documented trigger. A pain diary is the most useful tool.</span></div></li>
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="h-ask">
+    <h2 id="h-ask">Ask your dermatologist</h2>
+    <ol class="ask">
+      <li>Can we add the anti-beta-2 glycoprotein I test (IgG and IgM)? Rivaroxaban does not affect it.</li>
+      <li>After how many stable months would you support a trial of stopping? What is the restart plan?</li>
+      <li>Have these been checked: protein C, protein S, antithrombin, lipoprotein(a), hepatitis B and C, ANCA, urine test, protein electrophoresis?</li>
+      <li>If new spots appear while I take rivaroxaban, is a deeper repeat biopsy and an anti-inflammatory medicine such as colchicine the next step?</li>
+    </ol>
+  </section>
+
+  <section class="block" aria-labelledby="h-more">
+    <h2 id="h-more">Read more, only if you want</h2>
+    <p class="caption">Tap a topic to open it. Each one starts with its main point. LV is rare, so everything here comes from small studies, case reports and expert opinion.</p>
+
+    <div class="more">
+
+      <details id="d-stop">
+        <summary><span><span class="sum-title">Stopping or reducing the tablet</span><span class="sum-line">About 6 in 10 relapse, but usually mildly</span></span></summary>
+        <div class="body">
+          <p class="main">A planned stop is normal guideline practice once you are stable. Expect roughly a 6 in 10 chance that LV returns within about 2 years. Relapses were usually milder, and second treatment courses were much shorter.</p>
+          <p><strong>What the guideline says.</strong> The German guideline (2025 version) sets no fixed treatment length. For a stable patient it gives two choices: rivaroxaban 10 mg a day, or a trial of stopping. It does not say how long you should be stable first. It says nothing about every-other-day or seasonal dosing. <a class="src" href="https://register.awmf.org/assets/guidelines/013-098l_S1_Diagnostik-Therapie-Livedovaskulopathie_2026-05.pdf">Guideline</a></p>
+          <div class="scroll">
+            <table>
+              <thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead>
+              <tbody>
+                <tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10897505/">China, rivaroxaban</a></td><td>26 people who stopped after about 9 months</td><td>38% no relapse over 17.5 months. 62% relapsed after about 7 months.</td></tr>
+                <tr><td><a href="https://www.dpcj.org/index.php/dpc/article/download/6930/3938/114821">China, largest series</a></td><td>236 people, different treatments</td><td>62% relapsed within 2 years. 14% stayed clear more than 4 years.</td></tr>
+                <tr><td><a href="https://medicaljournals.se/acta/content/html/10.2340/00015555-2965">France</a></td><td>26 people, 5 years of follow-up</td><td>9 had no flare for 4 years or more. 5 of them took no medicine.</td></tr>
+                <tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9420174/">Korea</a></td><td>13 people who stopped rivaroxaban</td><td>10 relapsed, more mildly. Second-hand figure, not checked in the original.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul>
+            <li><strong>There is an early warning.</strong> New ulcers usually follow 1 to 3 days of burning pain. Pain falls within 2 to 4 days of starting or raising the medicine. The guideline recommends a pain diary and acting when pain clearly rises.</li>
+            <li><strong>No "rebound" is proven.</strong> In a large trial of people with vein clots, there were no extra clots in the 30 days after stopping 10 mg. The drug leaves the body within about a day, so a slow taper has no clear purpose. That last point is reasoning, not a tested fact.</li>
+            <li><strong>Lower doses are unverified.</strong> One paper mentions 10 mg every other day in one sentence, with no patient numbers and no results.</li>
+            <li><strong>Seasonal treatment is untested.</strong> No study has tried "treat only in the hot months". Singapore has no cool season, so this idea probably does not fit.</li>
+          </ul>
+          <h3>Cautions for your case</h3>
+          <ul>
+            <li>You have been on rivaroxaban about 5 weeks. People in the main study stopped after about 9 months.</li>
+            <li>With more than 10 years of relapses, your chance of relapse is probably at the higher end. No study has measured this.</li>
+            <li>Staying on the tablet is not perfect either. Four people in the main study relapsed after heat exposure while still taking it.</li>
+            <li>A failed stop can leave permanent white scars, and some patients develop nerve damage. This is why any stop should be planned with your doctor.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="d-clot">
+        <summary><span><span class="sum-title">Other clot medicines</span><span class="sum-line">None clearly better or safer</span></span></summary>
+        <div class="body">
+          <p class="main">No other clot medicine has been shown to keep LV away better than low-dose rivaroxaban. Aspirin is the simplest swap, but it works less well for LV, and its bleeding risk was about the same in the one direct comparison.</p>
+          <div class="opts">
+            <div class="opt"><h3>Apixaban, dabigatran, edoxaban (same family)</h3><p>Single case reports only. Never compared with rivaroxaban. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9574051">Source</a></p><p class="limit">Drawback: same type of drug, same type of bleeding risk. Worth a switch only if rivaroxaban fails or causes side effects.</p></div>
+            <div class="opt"><h3>Heparin injections (enoxaparin)</h3><p>Best-supported alternative for an active flare. Full response in 83% of flares in a French series, given for 15 days to 3 months. <a class="src" href="https://medicaljournals.se/acta/content/html/10.2340/00015555-2965">Source</a></p><p class="limit">Drawback: daily self-injection. Used for short courses, not for years.</p></div>
+            <div class="opt"><h3>Warfarin</h3><p>Three Indian men did well on a very low dose; one relapsed a year after stopping. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5618839/">Source</a></p><p class="limit">Drawback: regular blood tests, many food and drug interactions.</p></div>
+            <div class="opt"><h3>Aspirin</h3><p>Mixed results. Singapore: 1 of 6 did well on aspirin or pentoxifylline alone. India: 6 of 26 healed on aspirin alone at 6 months. France: aspirin-type drugs cleared 33% of flares. <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/14716957/">Singapore</a> · <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/41655089/">India</a></p><p class="limit">Drawback: weaker than anticoagulants. Not in the German guideline's treatment list.</p></div>
+            <div class="opt"><h3>Aspirin plus clopidogrel</h3><p>12 of 17 improved, but 11 of 17 flared within a year. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9650729/">Source</a></p><p class="limit">Drawback: frequent breakthrough flares.</p></div>
+            <div class="opt"><h3>Sulodexide (a heparin-like tablet)</h3><p>31 of 35 cleared in 12 weeks in a 2026 Chinese study. Read as an abstract only; no relapse data. <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/41482702/">Source</a></p><p class="limit">Drawback: not found in Singapore's medicines register in one automated check. Confirm with a pharmacist.</p></div>
+            <div class="opt"><h3>Danazol (a hormone-type drug)</h3><p>Stopped new spots in small series of 6 and 4 patients. <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/9187843/">Source</a></p><p class="limit">Drawback: short courses of 4 to 12 weeks only, because of hormone side effects.</p></div>
+          </div>
+          <p><strong>A pattern some doctors use.</strong> Strong drug first, then step down to aspirin to stay clear. This has never been tested against simply continuing the anticoagulant.</p>
+        </div>
+      </details>
+
+      <details id="d-immune">
+        <summary><span><span class="sum-title">Immune and newer treatments</span><span class="sum-line">Backups that control, but do not cure</span></span></summary>
+        <div class="body">
+          <p class="main">These are used when clot medicines fail. All of them calm the disease while you take them, and relapse after stopping is common. They matter for you mainly because your biopsy showed a mixed picture.</p>
+          <div class="opts">
+            <div class="opt"><h3>IVIG (antibodies from donated blood, by drip)</h3><p>About 80 published patients; 76 improved. In one Korean series 6 of 7 relapsed after about 13 months. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9134453/">Source</a></p><p class="limit">Limits: hospital drip, costly, no Singapore price found. Most patients also stayed on a clot medicine.</p></div>
+            <div class="opt"><h3>JAK inhibitors (immune-calming tablets such as baricitinib)</h3><p>About 30 to 45 published patients, mostly from China. Most improved in 1 to 3 months. Relapse was common when the drug was stopped. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13714699/">Source</a></p><p class="limit">Limits: the US regulator warns this drug class can raise the risk of blood clots, heart events and cancer. That warning comes from older arthritis patients. Too few LV patients have been treated to be reassured.</p></div>
+            <div class="opt"><h3>Colchicine (an old anti-inflammatory tablet)</h3><p>The most successful single drug in Singapore's National Skin Centre series of 70 patients (1997 to 2007). Also a usual first choice for skin vasculitis that keeps returning. <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/23052434/">Source</a></p><p class="limit">Limits: from the time before rivaroxaban. No data on relapse after stopping.</p></div>
+            <div class="opt"><h3>Steroid tablets alone</h3><p>Worst result in the largest series: 14 of 19 relapsed within 2 years. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13557247/">Source</a></p><p class="limit">Limits: for short flares or linked autoimmune disease only.</p></div>
+            <div class="opt"><h3>Hyperbaric oxygen (oxygen in a pressure chamber)</h3><p>Ulcers healed in about 3.4 weeks, but 6 of 8 later relapsed. <a class="src" href="https://europepmc.org/article/MED/16433793">Source</a></p><p class="limit">Limits: a rescue for ulcers, not prevention.</p></div>
+          </div>
+          <p>No LV drug trial open to patients was found on the US or EU trial registers. The Chinese register could not be checked.</p>
+          <p><strong>Why your mixed biopsy matters.</strong> Blood thinners are not standard treatment for vasculitis. So your response is useful information. Staying clear on rivaroxaban alone points towards LV. New spots despite it would point towards vasculitis, where an anti-inflammatory medicine makes more sense. This is reasoning, not a tested rule, and 5 weeks is too short to judge.</p>
+        </div>
+      </details>
+
+      <details id="d-habits">
+        <summary><span><span class="sum-title">Habits and non-drug measures</span><span class="sum-line">Sensible, but they cannot replace medicine</span></span></summary>
+        <div class="body">
+          <p class="main">No habit or device has been shown to prevent LV flares, and none has been tested properly. They are low-risk add-ons. Your current routine already covers what the guidelines endorse.</p>
+          <div class="opts">
+            <div class="opt"><h3>Avoid heat and big temperature swings</h3><p>Summer worsening in 82% of Chinese patients with a seasonal pattern and 54% in France, but only 1 of 24 in Finland.</p><p class="limit">Best-documented trigger. No study has tested cooling or air conditioning. Ice on the skin has no support.</p></div>
+            <div class="opt"><h3>Pain diary and early action</h3><p>Recommended by the German guideline with near-full expert agreement.</p><p class="limit">The most useful tool. It guides when to restart or raise medicine.</p></div>
+            <div class="opt"><h3>Light compression stockings (about 20 mmHg)</h3><p>The guideline says they "can be considered" if you tolerate them. No data on relapse.</p><p class="limit">Check the leg arteries first. Hard to wear in a hot, humid climate.</p></div>
+            <div class="opt"><h3>Avoid long standing, raise legs, stay active</h3><p>Long standing worsened LV in 12 of 24 patients in one small series.</p><p class="limit">Borrowed from vein disease. No exercise type is shown to be harmful.</p></div>
+            <div class="opt"><h3>Protect feet and ankles from knocks</h3><p>Expert advice. Scarred ankle skin heals slowly.</p></div>
+            <div class="opt"><h3>No smoking or nicotine</h3><p>Two French patients reached long remission after stopping smoking.</p></div>
+            <div class="opt"><h3>Special diet, weight, blood pressure</h3><p>Good for general health. No proof they change flares.</p></div>
+          </div>
+          <p><strong>Sport on rivaroxaban.</strong> Non-contact sport is considered safe. Contact and collision sport is traditionally discouraged. <a class="src" href="https://www.singhealth.com.sg/medicine/rivaroxaban">SingHealth</a></p>
+        </div>
+      </details>
+
+      <details id="d-tests">
+        <summary><span><span class="sum-title">Tests and hidden causes</span><span class="sum-line">One missing test could change your medicine</span></span></summary>
+        <div class="body">
+          <p class="main">More tests rarely find something that cures LV. But they can show rivaroxaban is the wrong drug, find a look-alike disease with its own treatment, or show how careful to be about stopping.</p>
+          <div class="opts">
+            <div class="opt"><h3>Anti-beta-2 glycoprotein I (IgG and IgM)</h3><p>Completes the screen for antiphospholipid antibodies (immune proteins that make blood clot too easily). Your other two tests are recorded as normal. The guideline says rivaroxaban-type drugs should not be used if these antibodies are present.</p><p class="limit">Not affected by rivaroxaban. A positive result needs a repeat test some weeks later.</p></div>
+            <div class="opt"><h3>Protein C, protein S, antithrombin</h3><p>The inherited clotting problems that matter most in East and Southeast Asian people.</p><p class="limit">Some test methods read falsely normal on rivaroxaban. Ask the lab to use a method that is not affected.</p></div>
+            <div class="opt"><h3>Lipoprotein(a), a blood fat</h3><p>Raised in about 42% of Brazilian and German LV patients, but about 13% in one Chinese series.</p><p class="limit">Matters for heart health. No approved drug lowers it yet, and there is no proven LV treatment for it.</p></div>
+            <div class="opt"><h3>Hepatitis B and C</h3><p>Found in 7% and 4% of the Singapore series. Treatable.</p></div>
+            <div class="opt"><h3>ANCA, complement, urine test, kidney function</h3><p>Look for vasculitis elsewhere in the body.</p></div>
+            <div class="opt"><h3>Protein electrophoresis, cryoglobulins</h3><p>Look for abnormal blood proteins. Rare, but treatable when found.</p></div>
+          </div>
+          <h3>Tests with little value for you</h3>
+          <ul>
+            <li><strong>Factor V Leiden and prothrombin gene tests.</strong> Close to absent in Asian populations.</li>
+            <li><strong>PAI-1 and MTHFR gene tests.</strong> Common in healthy people too. B vitamins only help when homocysteine is high, and yours is recorded as normal.</li>
+          </ul>
+          <p><strong>About the mixed biopsy.</strong> Some inflammation fits LV: it was seen in 38% of 358 LV biopsies. The main look-alike is a vasculitis of deeper vessels (cutaneous polyarteritis nodosa). If a new spot appears, a deep biopsy from the edge of a fresh spot gives the clearest answer. <a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9574051">Source</a></p>
+        </div>
+      </details>
+
+      <details id="d-safety">
+        <summary><span><span class="sum-title">Is 10 mg safe for years?</span><span class="sum-line">A low dose, with bleeding risk close to aspirin</span></span></summary>
+        <div class="body">
+          <p class="main">Rivaroxaban is a clot-prevention medicine with many uses. Stroke prevention is one of them, at 15 or 20 mg, in older people with an irregular heartbeat. Your 10 mg is the low, preventive dose.</p>
+          <div class="scroll">
+            <table>
+              <thead><tr><th>Dose</th><th>Used for</th></tr></thead>
+              <tbody>
+                <tr><td><strong>10 mg once a day</strong></td><td>Preventing clots after hip or knee surgery. Long-term prevention of repeat leg or lung clots.</td></tr>
+                <tr><td>15 or 20 mg once a day</td><td>Preventing stroke in people with an irregular heartbeat.</td></tr>
+                <tr><td>15 mg twice a day, then 20 mg</td><td>Treating a new leg or lung clot.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Bleeding over about one year, 3,365 people with vein clots</h3>
+          <div class="scroll">
+            <table>
+              <thead><tr><th></th><th>Rivaroxaban 10 mg</th><th>Aspirin 100 mg</th></tr></thead>
+              <tbody>
+                <tr><td>Major bleeding</td><td>0.4%</td><td>0.3%</td></tr>
+                <tr><td>Smaller bleeding needing a doctor</td><td>2.0%</td><td>1.8%</td></tr>
+                <tr><td>New clot</td><td>1.2%</td><td>4.4%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="caption">Median age in this trial was about 60. Source: <a href="https://discovery.ucl.ac.uk/id/eprint/10050925/1/nejmoa1700518.pdf">Weitz et al., NEJM 2017</a>.</p>
+          <ul>
+            <li><strong>Your age.</strong> Bleeding is higher in people over 65 or with poor kidneys. A healthy man in his 30s is probably below the trial average. This is an estimate, not a measured figure.</li>
+            <li><strong>The risk adds up year by year</strong>, but not from a build-up of damage. Studies found no sign of lasting harm to kidneys or bones. Liver injury is rare.</li>
+            <li><strong>Not measured:</strong> bleeding in healthy people under 50, and anything beyond about 5 years.</li>
+          </ul>
+          <h3>Daily life on 10 mg</h3>
+          <ul>
+            <li>Take with or without food. No routine blood monitoring.</li>
+            <li>Missed dose: take it the same day. Do not double up.</li>
+            <li>Tell dentists and surgeons before any procedure.</li>
+            <li>Avoid regular painkillers such as ibuprofen or Arcoxia, and do not add aspirin without a clear reason.</li>
+            <li>About a dozen generic brands are registered in Singapore, so asking for the cheapest one is reasonable.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="d-unknown">
+        <summary><span><span class="sum-title">What nobody knows yet</span><span class="sum-line">The honest gaps in the research</span></span></summary>
+        <div class="body">
+          <ul>
+            <li><strong>No proper large trials.</strong> Every number here comes from small studies. Good results get published more often than bad ones.</li>
+            <li><strong>Continue or stop?</strong> No study compares staying on low-dose rivaroxaban with a planned stop. No study shows who will stay in remission.</li>
+            <li><strong>How long to be stable before stopping.</strong> No guideline says.</li>
+            <li><strong>Tropical climates.</strong> No relapse data exist from a place without a cool season.</li>
+            <li><strong>Men.</strong> Most studies are 70 to 80% women.</li>
+            <li><strong>Does LV fade with age?</strong> Not studied. After more than 10 years, it is safer not to count on it.</li>
+            <li><strong>Your exact diagnosis.</strong> No source says how to treat a case where LV and small vessel vasculitis overlap. Your response to rivaroxaban over the coming months is part of the answer.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="d-sources">
+        <summary><span><span class="sum-title">Sources</span><span class="sum-line">The main studies and guidelines behind this page</span></span></summary>
+        <div class="body sources">
+          <h3>Guideline and reviews</h3>
+          <ul>
+            <li><a href="https://register.awmf.org/assets/guidelines/013-098l_S1_Diagnostik-Therapie-Livedovaskulopathie_2026-05.pdf">German S1 guideline on LV, 2025 update</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9574051">Burg et al. 2022, review with treatment steps</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8721056/">Bilgic et al. 2021, drug doses and harms</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9420174/">Ramphall et al. 2022, rivaroxaban and IVIG review</a></li>
+            <li><a href="https://dermnetnz.org/topics/livedoid-vasculopathy">DermNet, livedoid vasculopathy</a></li>
+          </ul>
+          <h3>LV patient studies</h3>
+          <ul>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10897505/">Deng et al. 2024, long-term rivaroxaban, China</a></li>
+            <li><a href="https://www.dpcj.org/index.php/dpc/article/download/6930/3938/114821">Ban et al. 2026, 358 patients, China</a></li>
+            <li><a href="https://medicaljournals.se/acta/content/html/10.2340/00015555-2965">Gardette et al. 2018, 26 patients, France</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/23052434/">Gan et al. 2012, 70 patients, Singapore</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/14716957/">Lee, Ang and Tan 2003, Singapore</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/41655089/">Gupta et al. 2026, rivaroxaban or aspirin, India</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9650729/">Shah et al. 2022, aspirin plus clopidogrel</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5618839/">Saoji and Madke 2017, low-dose warfarin</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/41482702/">Ban et al. 2026, sulodexide</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/9187843/">Hsiao and Chiu 1997, danazol</a></li>
+            <li><a href="https://pubmed.ncbi.nlm.nih.gov/37837185/">Yuan et al. 2024, inflammation in LV biopsies</a></li>
+          </ul>
+          <h3>Immune and newer treatments</h3>
+          <ul>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9134453/">Gao and Jin 2022, IVIG review</a></li>
+            <li><a href="https://europepmc.org/article/MED/25845419">Kim et al. 2015, pulsed IVIG, Korea</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12803528/">Zhao et al. 2026, JAK inhibitors</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13714699/">Wang et al. 2026, JAK inhibitor review</a></li>
+            <li><a href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-requires-warnings-about-increased-risk-serious-heart-related-events-cancer-blood-clots-and-death">FDA safety warning on JAK inhibitors</a></li>
+            <li><a href="https://europepmc.org/article/MED/16433793">Juan et al. 2006, hyperbaric oxygen</a></li>
+          </ul>
+          <h3>Tests and rivaroxaban safety</h3>
+          <ul>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8791165">Moser and Smock 2021, tests distorted by rivaroxaban</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7695562">Tsuda et al. 2020, protein C and S in Asian populations</a></li>
+            <li><a href="https://discovery.ucl.ac.uk/id/eprint/10050925/1/nejmoa1700518.pdf">Weitz et al. 2017, rivaroxaban 10 mg against aspirin</a></li>
+            <li><a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/022406s041lbl.pdf">FDA Xarelto label</a></li>
+            <li><a href="https://www.singhealth.com.sg/medicine/rivaroxaban">SingHealth rivaroxaban patient page</a></li>
+            <li><a href="https://www.ndf.gov.sg/about-drugs/active-ingredient/m01108/">Singapore National Drug Formulary, rivaroxaban</a></li>
+          </ul>
+          <p>The full source list and research notes are saved in your project folder under <strong>reports</strong> and <strong>research_notes</strong>.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <footer>Prepared 21 Nov 2026, 11:36 (Singapore time), from published studies found online. A personal record and general information, not medical advice.</footer>
+
+</main>
