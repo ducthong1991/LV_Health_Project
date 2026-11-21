@@ -2,6 +2,8 @@
 
 Tick each one off and write the answer next to it.
 
+Questions on stopping the medicine, extra clotting tests and colchicine come from the research report of 21 Nov 2026 in the reports folder.
+
 ## Dermatologist, at the next visit
 
 ### Is the treatment working
@@ -15,13 +17,17 @@ Tick each one off and write the answer next to it.
 - [ ] The biopsy report favoured vasculitis. What made you decide on LV?
 - [ ] Was the biopsy taken at the edge of an ulcer? Could the inflammation be a reaction to the ulcer?
 - [ ] If I am not clearly better by about 8 weeks, will you do a deeper biopsy of a fresh spot to rule out vasculitis and cutaneous polyarteritis nodosa?
+- [ ] If new spots appear while I take rivaroxaban, is a deeper repeat biopsy and an anti inflammatory medicine such as colchicine the next step?
 
 ### Tests
 
 - [ ] Urine test and kidney function, because I had foamy urine for 2 days in early November
 - [ ] Liver function, as a baseline for long term rivaroxaban
 - [ ] ESR, CRP, complement C3 and C4, cryoglobulins, hepatitis B and C, ANCA and rheumatoid factor
-- [ ] Anti beta 2 glycoprotein I and lipoprotein(a)
+- [ ] Anti beta 2 glycoprotein I, IgG and IgM. Ask for this first: it completes the antiphospholipid screen, rivaroxaban does not affect it, and a positive result could change which medicine is right
+- [ ] Lipoprotein(a)
+- [ ] Protein C, protein S and antithrombin, using a lab method that rivaroxaban does not distort
+- [ ] Serum protein electrophoresis
 - [ ] Could the eosinophils on the biopsy mean a reaction to Arcoxia?
 
 ### Medicines
@@ -34,7 +40,8 @@ Tick each one off and write the answer next to it.
 ### Long term plan
 
 - [ ] How long will I stay on this dose, and what would make you reduce or stop it?
-- [ ] If I stop and it flares, can I restart straight away with a standing prescription?
+- [ ] After how many stable months would you support a trial of stopping? The German guideline offers stable patients 10 mg a day or a trial of stopping
+- [ ] If I stop and it flares, can I restart straight away with a standing prescription? What dose would I restart on?
 - [ ] How often should I have blood tests while on it?
 
 ### Wounds and daily life
