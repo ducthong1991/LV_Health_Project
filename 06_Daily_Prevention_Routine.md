@@ -50,10 +50,37 @@ Supplements, a massage gun and skipping tablets do not help.
 
 ## Exercise
 
+No exercise has been tested in LV. This advice is expert opinion, borrowed from vein disease and from general blood thinner safety. Confirm it with the dermatologist.
+
 - **While wounds are open:** flat walking, seated or upper body gym work, stationary bike if nothing presses on a wound. No swimming, no barefoot training, no jumping.
 - **Gym on rivaroxaban:** prefer machines to free weights near the feet. Protect the shins. Expect easier bruising. Any knock to the head means seeing a doctor.
-- **Once healed:** build from about 4,000 steps toward 7,000 to 10,000 a day, adding about 1,000 a week. Cycling and swimming are good. Wear pool shoes.
+- **Steps:** aim for a steady 7,000 to 10,000 every day, weekends included. Garmin to 21 Nov 2026 showed about 9,800 on weekdays but about 1,900 on weekend days. See 11_Tracking_Log.md.
+- **Walk out of the heat:** many recorded walks start around 3:15pm, the hottest part of the day. Heat is the best documented trigger, so use shade or indoor routes, or walk in the evening.
+- **Strength:** two light leg sessions a week add calf pump work. See the next section.
+- **Once healed:** cycling and swimming are good. Wear pool shoes.
 - **Skip:** sauna, hot soaks and ice baths.
+
+### Leg training at the gym
+
+Added 21 Nov 2026. Leg training is fine while wounds are open, as long as nothing presses on or rubs a wound.
+
+- **Fine to do:** leg press with shoes on and moderate weight. Seated hip abduction and adduction. Glute machines. Calf raises. Leg extension and leg curl only if the pad does not sit on a wound or the biopsy site.
+- **Avoid for now:** jumping, box jumps, sprints and barefoot training. Free weights near the feet, such as deadlifts or carrying plates and dumbbells. A dropped weight on rivaroxaban means a large bruise and possibly a new ulcer.
+- **Before:** cushioned socks, roomy closed shoes, dressing on. Start light and build up slowly.
+- **During:** train in a cool room. Check that no pad, strap or shoe rubs the ankle bones or the top of the foot.
+- **After:** rinse lukewarm and change a wet dressing. Raise the legs for 20 to 30 minutes, then check both feet.
+- **Stop the session if:** a new burning or stabbing pain starts at the ankle or foot, a wound bleeds, or the dressing soaks through.
+- **Skip leg day and see a doctor first if:** a wound has pus, spreading redness, warmth or swelling.
+
+## Sleep
+
+Added 22 Nov 2026. No LV study looks at sleep, so this is general healing advice and not an LV treatment.
+
+- **Target:** 7 hours or more a night.
+- **Where it stands:** Garmin for 9 to 22 Nov 2026 showed an average of 5 h 50 min, down from 7 h 23 min in September. Sleep starts around 1:20am and ends around 7:30am, with almost no waking in between. The late bedtime looks like the cause, not pain.
+- **How to fix it:** move bedtime 15 to 20 minutes earlier every few nights until asleep by midnight.
+- **If leg pain wakes you:** log it and tell the dermatologist. Night pain can be an early flare sign.
+- **Evidence:** in one study, healthy adults who slept 2 hours a night for 3 nights took 5.0 days to restore the skin barrier instead of 4.2. That is far less sleep than 6 hours, so the size of the effect here is not known. A 2022 review of 31 studies found that sleep loss lowers pain thresholds in healthy people. Sources are in 12_Sources_and_Related_Chats.md.
 
 ## Football
 

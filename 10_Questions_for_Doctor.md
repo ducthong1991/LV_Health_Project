@@ -50,6 +50,7 @@ Questions on stopping the medicine, extra clotting tests and colchicine come fro
 - [ ] Which dressing should I use, and can I see a wound care nurse?
 - [ ] When can I start class 1 compression stockings, and which type?
 - [ ] When can I swim? Can I play football, and under what conditions?
+- [ ] Is leg training on gym machines fine while wounds are open? Is there any exercise I should avoid?
 
 ## Pharmacist
 

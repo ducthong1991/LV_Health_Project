@@ -18,6 +18,7 @@ The working diagnosis is livedoid vasculopathy (LV). Thomas has taken rivaroxaba
 | Veins | SGH duplex on 30 Sep 2026 showed no significant reflux |
 | Blood tests | 13 Oct 2026: antiphospholipid tests, ANA, anti dsDNA, homocysteine and clotting normal. Blood count normal apart from slightly high monocytes |
 | Not yet tested | Urine, kidney function, vasculitis screen, lipoprotein(a). See 03_Test_Results.md |
+| Sleep and activity | Garmin to 22 Nov 2026: sleep averages 5 h 50 min, down from 7 h 23 min in Sep. Steps about 7,800 a day, up from about 4,000. No gym sessions recorded |
 
 ## Open health items
 
@@ -47,3 +48,4 @@ Details are in 09_AIA_Insurance_and_Claims.md.
 3. Ask whether 10 mg is enough while ulcers are still open. See 10_Questions_for_Doctor.md.
 4. Submit and chase the AIA claims.
 5. Follow the daily routine in 06_Daily_Prevention_Routine.md and log weekly in 11_Tracking_Log.md.
+6. Move bedtime toward midnight to reach 7 hours of sleep. Ask the dermatologist to confirm that leg training at the gym is fine.

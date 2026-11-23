@@ -12,6 +12,7 @@
 - No joint pain, stomach pain or fever reported.
 - The problem was first thought to be varicose veins. The SGH duplex scan did not support that.
 - Garmin data in early Sep 2026: about 4,000 steps a day, about 1,800 on Sundays, about 15 hours sedentary, almost no workouts. Sleep 7 h 23 min, sleep score 86, resting heart rate 63.
+- Garmin data to 22 Nov 2026: about 7,800 steps a day, about 1,900 on weekend days, only walks recorded. Sleep 5 h 50 min, sleep score 72, resting heart rate 64. Detail is in 11_Tracking_Log.md.
 
 ## Doctors and clinics
 
@@ -26,6 +27,8 @@ Newest first.
 
 | Date | Event |
 | --- | --- |
+| 22 Nov 2026 | Food, sleep and exercise reviewed against Garmin data. Sleep averages 5 h 50 min, down from 7 h 23 min in Sep. Steps are up to about 7,800 a day. Sleep target added to 06_Daily_Prevention_Routine.md |
+| 21 Nov 2026 | Asked about leg training at the gym. Advised it is fine on machines while wounds are open if nothing presses on a wound. To be confirmed with the dermatologist |
 | 21 Nov 2026 | This project built |
 | 14 Nov 2026 | Prevention plan ranked; bleeding risk of daily rivaroxaban reviewed |
 | 11 Nov 2026 | Forgot the morning rivaroxaban dose; planned to take it at about 10:30pm. Hit the foot on a drawer, quite painful |

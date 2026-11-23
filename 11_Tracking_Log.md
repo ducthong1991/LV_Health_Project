@@ -53,6 +53,24 @@ Add a line for every flare, infection, knock, bleed, doctor visit or medicine ch
 
 Earlier photos from 22 Aug, 29 Aug and 5 Sep 2026 are described in 02_History_and_Timeline.md but the image files are not in this folder.
 
+## Garmin snapshots
+
+Add a row whenever the Garmin data is reviewed. Low step days may mean the watch was not worn.
+
+| Period | Sleep a night | Sleep score | Steps a day | Resting heart rate | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Early Sep 2026 | 7 h 23 min | 86 | About 4,000 | 63 | About 1,800 on Sundays. About 15 hours sedentary. Almost no workouts |
+| Sleep: 9 to 22 Nov 2026. Steps: 26 Oct to 21 Nov 2026 | 5 h 50 min over 12 recorded nights | 72 | About 7,800 | 64 | See the detail below |
+
+Detail for the Nov 2026 snapshot, reviewed on 22 Nov 2026:
+
+- **Sleep length.** No night reached 7 hours. The shortest were 3 h 35 min on 10 Nov and 4 h 52 min on 21 Nov. The nights of 14 and 16 Nov were not recorded.
+- **Sleep timing.** Sleep starts around 1:20am and ends around 7:30am, with almost no waking in between.
+- **Steps.** About 9,800 on weekdays and about 1,900 on weekend days. Highest was 18,154 on 11 Nov. Lowest was 182 on 7 Nov.
+- **Activities.** Only walks recorded, 12 of them from 14 to 20 Nov. No gym or strength session in the 60 days to 22 Nov. Several walks start around 3:15pm.
+- **Intensity minutes.** About 360 to 560 a week against a goal of 150, nearly all moderate and from walking.
+- **Overnight HRV.** 23 to 36 ms. Status was unbalanced on 9 to 12 Nov and 17 Nov, and balanced from 18 Nov.
+
 ## Trigger notes
 
 After each flare, note the weather, time spent in heat, hours standing, any knock, any infection and any new medicine in the week before. Patterns here show which triggers matter most.

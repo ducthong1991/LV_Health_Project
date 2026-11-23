@@ -4,6 +4,7 @@
 
 - **Your documents:** SGH results printed 26 Oct 2026, five SGH invoices, HealthHub payment receipts, your emails with AIA and SGH billing, and the handover note of 14 Oct 2026.
 - **Your chats with Claude:** listed below.
+- **Your Garmin Connect data:** sleep, steps and activities, read on 22 Nov 2026.
 - **Research:** three research reports of 31 Oct 2026 (supplements, daily prevention, LV versus vasculitis) and the sources below. LV is rare, so most evidence is small studies, case series and expert opinion.
 
 ## Research reports
@@ -54,6 +55,13 @@ Each report is saved in the reports folder with its date and time in the file na
 - [NHS RDaSH: Dietary advice for wound care](https://www.rdash.nhs.uk/services/dietetics/dietary-advice-for-wound-care/)
 - [NHS: Cellulitis](https://www.nhs.uk/conditions/cellulitis/)
 
+### Sleep
+
+Neither source studied LV. Both are in healthy adults.
+
+- [Sleep restriction and skin barrier restoration, Journal of Applied Physiology (2018)](https://pubmed.ncbi.nlm.nih.gov/28912361/)
+- [Sleep deprivation and pain perception, systematic review, Sleep Medicine Reviews (2022)](https://pubmed.ncbi.nlm.nih.gov/36334461/)
+
 ## Related chats
 
 Open these for the full detail behind a topic.
@@ -72,6 +80,7 @@ Open these for the full detail behind a topic.
 | 27 to 28 Oct 2026 | [AIA claim resubmission steps](https://claude.ai/chat/d6634908-8018-4a76-8dd6-aeb99247c004) | Resubmitting the blood test claim on AIA+ |
 | 27 Oct 2026 | [Rivaroxaban mua trên mạng](https://claude.ai/chat/7af31505-e88b-400b-9d37-36edd87d94d9) | Where rivaroxaban can be bought in Singapore and why 2.5 mg is not for LV |
 | 14 Oct to 21 Nov 2026 | The chat where this project was built | Biopsy and blood results, diagnosis, treatment, prevention, the three research reports |
+| 21 to 23 Nov 2026 | [Legs exercise at the gym](https://claude.ai/code/session_01GWwV3WSky1nTs75LDZ6L18) | Leg training with open wounds, food, sleep and exercise checked against Garmin data |
 
 ## About Claude Projects
 
